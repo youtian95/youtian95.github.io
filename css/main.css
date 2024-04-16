@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 150%;
+}
+
+html, body {
+    height: 100%;
+}
+
+/*导航栏内容设置--------------------------------*/
+nav .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(2, 48, 71);
+    list-style: none;
+    padding-left: 20%;
+    padding-right: 20%;
+	padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: space-around;
+}
+nav .navbar a:link, nav .navbar a:visited, nav .navbar a:active {
+	font-family: "微软正黑体";
+    font-size: 20px;
+    height: auto;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+nav .navbar a:hover {
+	background-color: rgb(100, 100, 100);
+}
+
+/*左侧目录内容设置--------------------------------*/
+aside {
+	line-height: 1.4;
+	font-family: "微软正黑体";
+    font-size: 20px;
+    height: 40px;
+    float: right;
+    width: 28%;
+    margin-right: 2%;
+    position: fixed;
+}
+aside div {
+	margin-top: 20px;
+	border-radius: 20px;
+	box-shadow: 2px 2px 2px #888888;
+    float: right;
+    padding: 20px;
+    width: fit-content;
+    background-color: rgb(250, 250, 250);
+    overflow-y: auto;
+	max-height: 500px;
+}
+aside div ol {
+    list-style: none;
+}
+aside div ol li a:link, aside div ol li a:visited, aside div ol li a:active {
+    text-decoration: none;
+    color: rgb(33, 158, 188);
+}
+aside div ol li a:hover {
+	color: rgb(100, 100, 100);
+}
+li.toc-level-1 {
+	padding-left: 10px;
+    font-size: 20px;
+}
+li.toc-level-2 {
+	padding-left: 20px;
+    font-size: 18px;
+}
+li.toc-level-3 {
+	padding-left: 30px;
+    font-size: 16px;
+}
+
+
+/*文章内容设置--------------------------------*/
+#content {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+#content li {
+	margin-left: 20px;
+}
+#content .list_item_no_link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*文章内容设置--------------------------------*/
+#content_noTOC {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+#content_noTOC li {
+	margin-left: 20px;
+}
+#content_noTOC .list_item_no_link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*主页内容设置--------------------------------*/
+#homepage {
+    width: 50%;
+    margin-left: 20%;
+    margin-right: 0%;
+    float: left;
+}
+
+#homepage section {
+	border-style: none;
+	border-radius: 10px;
+	float: left;
+    width: 48%;
+    height: 300px;
+    margin: 1%;
+	padding: 0px;
+    background:rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px #888888;
+}
+
+#homepage section:hover {
+	box-shadow: 2px 2px 2px #888888;
+}
+
+#homepage section div.img {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+#homepage section div.img img {
+    width: 100%;
+    height: 100%;
+    float: center;
+    object-fit: contain;
+}
+#homepage section div.img_text {
+    height: 50px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+#homepage section div.img_text div.post_title {
+    font-family: Consolas, '黑体', 'Courier New', monospace;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+    font-size: 20px;
+    width: 100%;
+    max-height: 1.5em;
+    overflow: hidden;
+}
+
+#homepage section div.img_text div.tag {
+    font-family: Consolas, '微软雅黑', 'Courier New', monospace;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.716);
+    font-weight: normal;
+    font-size: 12px;
+    float: left;
+    overflow: hidden;
+}
+
+#homepage section div.img_text div.date {
+    font-family: Consolas, '微软雅黑', 'Courier New', monospace;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.592);
+    font-weight: normal;
+    font-size: 12px;
+    float: right;
+}
+
+/* 主页底部分页导航 */
+#page-nav {
+    margin-top: 20px;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+#page-nav a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 5px;
+}
+#page-nav span {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin: 5px;
+}
+
+/*主页右侧联系方式设置--------------------------------*/
+#selfie {
+    width: 8%;
+    margin-left: 2%;
+    margin-right: 20%;
+    margin-top: 20px;
+    float: left;
+}
+#selfie p {
+    padding-top: 10px;
+}
+#selfie p.head img {
+    width: 100%;
+    border-radius: 5%;
+    box-shadow: 0px 0px 5px #888888;
+}
+#selfie p.name {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(2, 48, 71);
+}
+#selfie p.email {
+    text-align: center;
+    color:rgb(100, 100, 100)
+}
+#selfie p {
+    text-align: left;
+    font-size: 12px;
+}
+#selfie div.icon {
+    width: 100;
+}
+#selfie div.icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#selfie div.icon a img {
+    width: 30px;
+}
+
+/*尾注内容设置--------------------------------*/
+footer {
+	margin-top: 50px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	float: left;
+	width: 100%;
+	border-top-style: solid;
+	border-color: rgb(200,200,200,0.3);
+	text-align: center;
+}
+
+/* 响应式布局 - 当屏幕小于 800 像素宽时，让两列堆叠而不是并排 */
+@media screen and (max-width: 800px) {
+    .navbar {   
+      flex-direction: column;
+    }
+}
