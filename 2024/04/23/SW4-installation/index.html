@@ -1,0 +1,99 @@
+<!-- 一般文章模板 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地震波传播模拟程序SW4在Linux系统安装过程</title>
+    <meta charset="utf-8">
+
+    <!-- 引入配置文件 -->
+    
+<link rel="stylesheet" href="/css/main.css">
+
+    
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+
+    <div>
+
+        <!-- 引入导航 -->
+        <nav>
+			
+<div class="navbar">
+    <a href="/">首页</a>
+
+    <a href="/research">研究</a>
+
+    <a href="/programs">程序</a>
+
+    <a href="/knowledge">整理</a>
+
+    <a href="/2024/03/04/about-me">简介</a>
+</div>
+		</nav>
+
+        <!-- 引入目录 -->
+        <aside>
+            
+<div>
+	<strong>目录</strong>
+	<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E9%9C%87%E6%B3%A2%E4%BC%A0%E6%92%AD%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8FSW4%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-text">地震波传播模拟程序SW4在Linux系统安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="toc-text">安装流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85"><span class="toc-text">虚拟机安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">配置网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85spack-%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B"><span class="toc-text">安装spack (官方教程)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85SW4-%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B"><span class="toc-text">安装SW4 (官方教程)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95SW4%E4%BD%BF%E7%94%A8"><span class="toc-text">测试SW4使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">可能出现的问题</span></a></li></ol></li></ol>
+</div>
+        </aside>
+
+        <!-- 正文 -->
+        <div id="content">
+			<h1 id="地震波传播模拟程序SW4在Linux系统安装"><a href="#地震波传播模拟程序SW4在Linux系统安装" class="headerlink" title="地震波传播模拟程序SW4在Linux系统安装"></a>地震波传播模拟程序<a target="_blank" rel="noopener" href="https://geodynamics.org/resources/sw4/about">SW4</a>在Linux系统安装</h1><h2 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h2><hr>
+<h3 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h3><ol>
+<li>下载并安装<a target="_blank" rel="noopener" href="https://www.vmware.com/products/workstation-player.html">VMware Workstation Player</a>。</li>
+<li>创建一个新的虚拟机实例 Ubuntu (需要下载并指定<a target="_blank" rel="noopener" href="https://cn.ubuntu.com/download">Ubuntu操作系统光盘文件</a>)，硬盘大小设置40g(默认的20g不够)<br> <img src="/2024/04/23/SW4-installation/VMware.png" alt="虚拟机"></li>
+</ol>
+<h3 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h3><ol>
+<li>VMware虚拟机的网络设置<br><img src="/2024/04/23/SW4-installation/NetSetting.png" alt="VMware虚拟机的网络设置"></li>
+<li>VPN允许局域网连接，并查看http和socks端口<br> <img src="/2024/04/23/SW4-installation/VPNport.png" alt="VPN"></li>
+<li>通过任务管理器查看VMware使用的IP地址<br> <img src="/2024/04/23/SW4-installation/IPv4.png" alt="IP地址"></li>
+<li>根据前面的IP地址和端口号进行Ubuntu虚拟系统代理设置<br><img src="/2024/04/23/SW4-installation/UbuntuNetwork.png" alt="Ubuntu虚拟系统代理设置"></li>
+<li>在Ubuntu虚拟系统中访问谷歌测试是否能上网</li>
+</ol>
+<h3 id="安装spack-官方教程"><a href="#安装spack-官方教程" class="headerlink" title="安装spack (官方教程)"></a>安装spack (<a target="_blank" rel="noopener" href="https://spack.readthedocs.io/en/latest/index.html">官方教程</a>)</h3><ol>
+<li>安装git。从home位置打开命令行窗口 (ctrl+alt+T)，输入下面的命令 (Ubuntu中命令行窗口复制&#x2F;粘贴命令快捷键是ctrl+shift+C&#x2F;V)：<br> <code>sudo apt install git</code></li>
+<li>把包管理程序spack代码从github中克隆到本地。<br> <code>git clone -c feature.manyFiles=true https://github.com/spack/spack.git</code></li>
+<li>安装Spack常用包<br> <code>sudo apt update</code><br> <code>sudo apt install build-essential ca-certificates coreutils curl environment-modules gfortran git gpg lsb-release python3 python3-distutils python3-venv unzip zip</code></li>
+</ol>
+<h3 id="安装SW4-官方教程"><a href="#安装SW4-官方教程" class="headerlink" title="安装SW4 (官方教程)"></a>安装SW4 (<a target="_blank" rel="noopener" href="https://github.com/geodynamics/sw4/blob/master/doc/SW4-Installation.pdf">官方教程</a>)</h3><ol>
+<li>通过包管理程序spack安装SW4 (可以在设置里面搜索power取消锁屏避免下载被中断)<br><code>. spack/share/spack/setup-env.sh</code><br><code>spack install sw4</code></li>
+</ol>
+<h3 id="测试SW4使用"><a href="#测试SW4使用" class="headerlink" title="测试SW4使用"></a>测试SW4使用</h3><ol>
+<li>打开命令行载入SW4包 (每次使用SW4都需要这样)<br> <code>. spack/share/spack/setup-env.sh</code><br> <code>spack load sw4</code></li>
+<li>搜索<code>test_sw4.py</code>进入所在位置 (注意是编译成功后的位置而不是源代码的位置)，类似下面目录：<br> <code>cd ./</code></li>
+<li>运行测试：<br> <code>./test_sw4.py -d bin</code><br> 其中 ‘-d bin’表示sw4可执行文件所在的目录，必须在test_sw4.py位置的上一级</li>
+<li>命令行显示以下信息时，表示测试通过 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Running all tests for level 0 ...</span><br><span class="line">Test # 1 Input file: energy-nomr-2nd-1.in PASSED</span><br><span class="line">Test # 2 Input file: energy-mr-4th-1.in PASSED</span><br><span class="line">Test # 3 Input file: energy-mr-sg-order2-1.in PASSED</span><br><span class="line">Test # 4 Input file: energy-mr-sg-order4-1.in PASSED</span><br><span class="line">Test # 5 Input file: refine-el-1.in PASSED</span><br><span class="line">Test # 6 Input file: refine-att-1.in PASSED</span><br><span class="line">Test # 7 Input file: refine-att-2nd-1.in PASSED</span><br><span class="line">Test # 8 Input file: tw-att-1.in PASSED</span><br><span class="line">Test # 9 Input file: tw-att-2.in PASSED</span><br><span class="line">Test # 10 Input file: tw-topo-att-1.in PASSED</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h2><hr>
+<ul>
+<li>出现以下类似的报错是由于编译器没有设置成功<br>  <code>...No C compiler...</code><br>  可以手动搜索<code>~/.spack/&lt;platform&gt;/compilers.yaml</code> (需要ctrl+H显示隐藏文件才能搜索到)，并按照以下设置编译器：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">compilers:</span><br><span class="line">- compiler:</span><br><span class="line">    paths:</span><br><span class="line">        cc: /usr/bin/gcc</span><br><span class="line">        cxx: /usr/bin/g++</span><br><span class="line">        f77: /usr/bin/gfortran</span><br><span class="line">        fc: /usr/bin/gfortran</span><br></pre></td></tr></table></figure></li>
+<li>紧跟<code>Fetching</code>后出现以下报错说明是由于网络问题没有下载成功，多次运行<code>spack install sw4</code>，或者直接安装相应没有下载成功的包即可解决<br>  <code>Error: ChecksumError: sha256 checksum failed for ...</code></li>
+<li><code>no spec name with h5z-zfp</code>报错把SW4源代码中<code>/home/&lt;username&gt;/spack/var/spack/repos/builtin/packages/sw4/package.py</code>中改成true：<br><code>variant(&quot;zfp&quot;, default=True, description=&quot;build with ZFP&quot;)</code></li>
+</ul>
+
+        </div>
+
+        <!-- 引入footer -->
+		<footer>
+			
+<p>
+© 2024 Tian You. All rights reserved.
+</p>
+		</footer>
+        
+    </div>
+
+    <!-- 引入 js 文件 -->
+    
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
+
+
