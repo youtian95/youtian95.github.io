@@ -98,13 +98,16 @@ li.toc-level-3 {
     color: inherit;
 }
 h1 {
-    line-height: 250%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 h2 {
-    line-height: 250%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 h3 {
-    line-height: 200%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /*文章内容设置--------------------------------*/
