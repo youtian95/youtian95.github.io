@@ -58,7 +58,7 @@
 <h3 id="安装spack-官方教程"><a href="#安装spack-官方教程" class="headerlink" title="安装spack (官方教程)"></a>安装spack (<a target="_blank" rel="noopener" href="https://spack.readthedocs.io/en/latest/index.html">官方教程</a>)</h3><ol>
 <li>安装git。从home位置打开命令行窗口 (ctrl+alt+T)，输入下面的命令 (Ubuntu中命令行窗口复制&#x2F;粘贴命令快捷键是ctrl+shift+C&#x2F;V)：<br> <code>sudo apt install git</code></li>
 <li>把包管理程序spack代码从github中克隆到本地。<br> <code>git clone -c feature.manyFiles=true https://github.com/spack/spack.git</code></li>
-<li>安装Spack常用包<br> <code>sudo apt update</code> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install build-essential ca-certificates coreutils curl environment-modules gfortran git gpg lsb-release python3 python3-distutils python3-venv unzip zip</span><br></pre></td></tr></table></figure></li>
+<li>安装常用包<br> <code>sudo apt update</code> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install build-essential ca-certificates coreutils curl environment-modules gfortran git gpg lsb-release python3 python3-distutils python3-venv unzip zip</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="安装SW4-官方教程"><a href="#安装SW4-官方教程" class="headerlink" title="安装SW4 (官方教程)"></a>安装SW4 (<a target="_blank" rel="noopener" href="https://github.com/geodynamics/sw4/blob/master/doc/SW4-Installation.pdf">官方教程</a>)</h3><ol>
 <li>通过包管理程序spack安装SW4 (可以在设置里面搜索power取消锁屏避免下载被中断)<br><code>. spack/share/spack/setup-env.sh</code><br><code>spack install sw4</code></li>
