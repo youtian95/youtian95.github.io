@@ -123,10 +123,14 @@ li.toc-level-3 {
 }
 /* 代码块设置 */
 #content pre, code {
-    background: #2d2d2d12;
+    background: #f5f5f5;
     font-family: Consolas;
-    white-space: pre;
+    white-space: normal;
     border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #333;
+    border: 0.5px solid #ccc;
 }
 
 /*主页内容设置--------------------------------*/
