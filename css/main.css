@@ -134,6 +134,8 @@ h3 {
     padding-right: 5px;
     color: #333;
     border: 0.5px solid #ccc;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 /*主页内容设置--------------------------------*/
