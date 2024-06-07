@@ -1,0 +1,80 @@
+<!-- 一般文章模板 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenQuake使用：国内任意场地地震危险性分析和任意区域地震动强度随机场模拟</title>
+    <meta charset="utf-8">
+
+    <!-- 引入配置文件 -->
+    
+<link rel="stylesheet" href="/css/main.css">
+
+    
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+
+    <div>
+
+        <!-- 引入导航 -->
+        <nav>
+			
+<div class="navbar">
+    <a href="/">首页</a>
+
+    <a href="/research">研究</a>
+
+    <a href="/programs">程序</a>
+
+    <a href="/knowledge">整理</a>
+
+    <a href="/2024/03/04/about-me">简介</a>
+</div>
+		</nav>
+
+        <!-- 引入目录 -->
+        <aside>
+            
+<div>
+	<strong>目录</strong>
+	<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenQuake%E4%BD%BF%E7%94%A8%EF%BC%9A%E5%9B%BD%E5%86%85%E4%BB%BB%E6%84%8F%E5%9C%BA%E5%9C%B0%E5%9C%B0%E9%9C%87%E5%8D%B1%E9%99%A9%E6%80%A7%E5%88%86%E6%9E%90%E5%92%8C%E4%BB%BB%E6%84%8F%E5%8C%BA%E5%9F%9F%E5%9C%B0%E9%9C%87%E5%8A%A8%E5%BC%BA%E5%BA%A6%E9%9A%8F%E6%9C%BA%E5%9C%BA%E6%A8%A1%E6%8B%9F"><span class="toc-text">OpenQuake使用：国内任意场地地震危险性分析和任意区域地震动强度随机场模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BD%9C%E5%9C%A8%E9%9C%87%E6%BA%90"><span class="toc-text">潜在震源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E5%9C%BA%E5%9C%B0%E7%9A%84%E5%9C%B0%E9%9C%87%E5%8D%B1%E9%99%A9%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-text">任意场地的地震危险性分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%9C%B0%E9%9C%87%E5%8A%A8%E5%BC%BA%E5%BA%A6%E9%9A%8F%E6%9C%BA%E5%9C%BA%E6%A8%A1%E6%8B%9F"><span class="toc-text">任意区域的地震动强度随机场模拟</span></a></li></ol></li></ol>
+</div>
+        </aside>
+
+        <!-- 正文 -->
+        <div id="content">
+			<h1 id="OpenQuake使用：国内任意场地地震危险性分析和任意区域地震动强度随机场模拟"><a href="#OpenQuake使用：国内任意场地地震危险性分析和任意区域地震动强度随机场模拟" class="headerlink" title="OpenQuake使用：国内任意场地地震危险性分析和任意区域地震动强度随机场模拟"></a>OpenQuake使用：国内任意场地地震危险性分析和任意区域地震动强度随机场模拟</h1><h2 id="潜在震源"><a href="#潜在震源" class="headerlink" title="潜在震源"></a>潜在震源</h2><hr>
+<p>从Global Earthquake Model (GEM)网站中获取中国震源模型(<a target="_blank" rel="noopener" href="https://www.globalquakemodel.org/product/china-hazard">v2021.1.0</a>)，需要从网站右边License Request发送请求来获取。该震源模型是GEM用来分析中国区域地震危险性的模型，并不是国内官方模型。</p>
+<p>通过OpenQuake的<code>nrml_to</code>功能将震源模型转成gpkg格式，然后可以用QGIS把模型绘制出来，以下按照断层震源、浅层板块、深层板块分别绘制出来。</p>
+<p>断层震源：<br><img src="/2024/06/06/GEM-CN-use/%E9%9C%87%E6%BA%90%20-%20%E6%96%AD%E5%B1%82%E5%88%86%E5%B8%83.jpeg" alt="震源 - 断层分布"></p>
+<p>浅层面震源：<br><img src="/2024/06/06/GEM-CN-use/%E9%9C%87%E6%BA%90%20-%20%E6%B5%85%E5%B1%82.jpeg" alt="震源 - 浅层"></p>
+<p>深层面震源：<br><img src="/2024/06/06/GEM-CN-use/%E9%9C%87%E6%BA%90%20-%20%E6%B7%B1%E5%B1%82.jpeg" alt="震源 - 深层"></p>
+<h2 id="任意场地的地震危险性分析"><a href="#任意场地的地震危险性分析" class="headerlink" title="任意场地的地震危险性分析"></a>任意场地的地震危险性分析</h2><hr>
+<p>选择三个场地（<a href="sites_chn_res6.csv">sites_chn_res6.csv</a>）：四川汶川县城、南京市浦口区、西藏拉萨市。使用OpenQuake进行地震危险性分析（<a href="job.ini">job.ini</a>），得到PGA和Sa(0.3)时的地震危险性曲线（年均超越次数-Sa关系图），并与<a target="_blank" rel="noopener" href="https://www.gb18306.net/">中国规范</a>的小震、中震、大震进行对比。</p>
+<p><img src="/2024/06/06/GEM-CN-use/SHC_3sites.svg" alt="SHC_3sites"></p>
+<p>可以发现，OpenQuake相比于规范烈度整体的趋势是，小震偏小、大震偏大。</p>
+<p>除了地震危险性曲线，也可以得到一致风险反应谱（中震和大震）。</p>
+<p><img src="/2024/06/06/GEM-CN-use/UHS_3sites.svg" alt="UHS_3sites"></p>
+<h2 id="任意区域的地震动强度随机场模拟"><a href="#任意区域的地震动强度随机场模拟" class="headerlink" title="任意区域的地震动强度随机场模拟"></a>任意区域的地震动强度随机场模拟</h2><hr>
+
+        </div>
+
+        <!-- 引入footer -->
+		<footer>
+			
+<p>
+© 2024 Tian You. All rights reserved.
+</p>
+		</footer>
+        
+    </div>
+
+    <!-- 引入 js 文件 -->
+    
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
+
+

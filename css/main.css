@@ -5,6 +5,13 @@
     text-decoration: none;
 }
 
+a:link, a:visited, a:active {
+    color: rgb(33, 158, 188);
+}
+a:hover {
+    color: rgb(100, 100, 100);
+}
+
 img {
     max-width: 100%;
 }
@@ -108,6 +115,11 @@ h2 {
 h3 {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+/*段落间距*/
+#content p {
+	margin-top: 0.5em; 
+    margin-bottom: 0.5em; 
 }
 
 /*文章内容设置--------------------------------*/
