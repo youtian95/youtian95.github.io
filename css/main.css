@@ -89,7 +89,6 @@ li.toc-level-3 {
     font-size: 16px;
 }
 
-
 /*文章内容设置--------------------------------*/
 #content {
     width: 40%;
@@ -122,19 +121,38 @@ h3 {
     margin-bottom: 0.5em; 
 }
 
-/*文章内容设置--------------------------------*/
+/*文章内容(无目录版)设置--------------------------------*/
 #content_noTOC {
     width: 40%;
     margin-left: 30%;
     margin-right: 30%;
 }
-
+#content_noTOC ul {
+    display: flex;
+    flex-direction: column;
+  }
 #content_noTOC li {
+    width: calc(100% - 30px);
 	margin-left: 20px;
+    margin-right: 10px;
 }
 #content_noTOC .list_item_no_link {
     text-decoration: none;
     color: inherit;
+}
+#content_noTOC .post_title {
+    width: 80%;
+    float: left;
+}
+#content_noTOC .post_date {
+    width: 20%;
+    float: right;
+    text-align: right;
+    font-family: Consolas, '微软雅黑', 'Courier New', monospace;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.592);
+    font-weight: normal;
+    font-size: 12px;
 }
 /* 代码块设置 */
 #content pre, code {
@@ -220,6 +238,8 @@ h3 {
     font-size: 12px;
     float: right;
 }
+
+
 
 /* 主页底部分页导航 */
 #page-nav {
